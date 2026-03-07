@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'feature/presentation/home_view/home_view.dart';
+import 'feature/presentation/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const HomeView(),
+      home: const MainScreen(),
     );
   }
 }
