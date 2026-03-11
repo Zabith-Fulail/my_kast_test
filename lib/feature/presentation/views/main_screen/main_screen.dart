@@ -1,31 +1,24 @@
 import 'package:flutter/material.dart';
-import 'home_view/home_view.dart';
-import 'message_view.dart';
-import 'notification_view.dart';
-import 'profile_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kast_test/utils/routes/pages.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final Widget child;
+
+  const MainScreen({super.key, required this.child});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-
   int selectedIndex = 0;
 
-  final List<Widget> pages = [
-    HomeView(),
-    MessageView(),
-    NotificationView(),
-    ProfileView(),
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[selectedIndex],
+      body: widget.child,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: SizedBox(
         width: 40,
@@ -52,33 +45,66 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         currentIndex: selectedIndex,
         type: BottomNavigationBarType.fixed,
         onTap: (index) {
           setState(() {
             selectedIndex = index;
           });
+          _navigate(selectedIndex);
         },
 
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_sharp,color: selectedIndex == 0 ? Colors.blue : Colors.grey,),
+            icon: Icon(
+              Icons.home_sharp,
+              color: selectedIndex == 0 ? Colors.blue : Colors.grey,
+            ),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message, color: selectedIndex == 1 ? Colors.blue : Colors.grey,),
+            icon: Icon(
+              Icons.message,
+              color: selectedIndex == 1 ? Colors.blue : Colors.grey,
+            ),
             label: "Messages",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notification_important,color: selectedIndex == 2 ? Colors.blue : Colors.grey,),
+            icon: Icon(
+              Icons.notification_important,
+              color: selectedIndex == 2 ? Colors.blue : Colors.grey,
+            ),
             label: "Notifications",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person, color: selectedIndex == 3 ? Colors.blue : Colors.grey,),
+            icon: Icon(
+              Icons.person,
+              color: selectedIndex == 3 ? Colors.blue : Colors.grey,
+            ),
             label: "Profile",
           ),
         ],
       ),
     );
+  }
+
+  void _navigate(int pageIndex) {
+    switch (pageIndex) {
+      case 0:
+        GoRouter.of(context).goNamed(Pages.homeView.toPathName());
+        break;
+      case 1:
+        GoRouter.of(context).goNamed(Pages.messageView.toPathName());
+        break;
+      case 2:
+        GoRouter.of(context).goNamed(Pages.notificationView.toPathName());
+        break;
+      case 3:
+        GoRouter.of(context).goNamed(Pages.profileView.toPathName());
+        break;
+      default:
+        GoRouter.of(context).goNamed(Pages.homeView.toPathName());
+    }
   }
 }

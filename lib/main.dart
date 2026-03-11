@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-
-import 'feature/presentation/main_screen.dart';
+import 'package:kast_test/utils/routes/routes.dart';
 
 void main() {
-  runApp(const MyApp());
-
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final AppRoutes _appRoutes = AppRoutes();
+
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Kast test',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MainScreen(),
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      routerConfig: _appRoutes.router,
+      builder: (context, child) {
+        return child!;
+      },
     );
   }
 }
-
