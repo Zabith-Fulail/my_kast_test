@@ -6,6 +6,7 @@ import 'package:kast_test/feature/presentation/views/notification/notification_v
 import 'package:kast_test/feature/presentation/views/profile/profile_view.dart';
 import 'package:kast_test/utils/routes/pages.dart';
 
+import '../../feature/presentation/views/counter_screen/counter_screen.dart';
 import '../../feature/presentation/views/home_view/home_view.dart';
 
 class AppRoutes {
@@ -32,23 +33,32 @@ class AppRoutes {
               parentNavigatorKey: _shellNavigatorKey,
               name: Pages.homeView.toPathName(),
               path: Pages.homeView.toPath(),
-            ),GoRoute(
+            ),
+            GoRoute(
               builder: (context, state) => MessageView(),
               parentNavigatorKey: _shellNavigatorKey,
               name: Pages.messageView.toPathName(),
               path: Pages.messageView.toPath(),
-            ),GoRoute(
+            ),
+            GoRoute(
               builder: (context, state) => NotificationView(),
               parentNavigatorKey: _shellNavigatorKey,
               name: Pages.notificationView.toPathName(),
               path: Pages.notificationView.toPath(),
-            ),GoRoute(
+            ),
+            GoRoute(
               builder: (context, state) => ProfileView(),
               parentNavigatorKey: _shellNavigatorKey,
               name: Pages.profileView.toPathName(),
               path: Pages.profileView.toPath(),
             ),
           ],
+        ),
+        GoRoute(
+          builder: (context, state) => CounterScreen(),
+          parentNavigatorKey: _rootNavigatorKey,
+          name: Pages.counterScreen.toPathName(),
+          path: Pages.counterScreen.toPath(),
         ),
       ],
     );

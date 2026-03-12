@@ -1,7 +1,6 @@
 part of 'card_bloc.dart';
 
-@immutable
-sealed class CardState {}
+abstract class CardState {}
 
 final class CardInitial extends CardState {}
 

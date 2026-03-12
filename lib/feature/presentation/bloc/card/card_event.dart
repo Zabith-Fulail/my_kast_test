@@ -1,7 +1,6 @@
 part of 'card_bloc.dart';
 
-@immutable
-sealed class CardEvent {}
+abstract class CardEvent {}
 
 class AddCardEvent extends CardEvent{
   final CardData card;

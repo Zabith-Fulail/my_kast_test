@@ -256,7 +256,7 @@ class _HomeViewState extends State<HomeView> {
                                     cardData: state.cards[index],
                                   );
                                 },
-                              ) : state is AddCardLoadingState ? Center(child: CircularProgressIndicator(),) : Center(child: CircularProgressIndicator(),);
+                              ) : state is AddCardLoadingState ? Center(child: CircularProgressIndicator(),) : SizedBox();
                             },
                           ),
                         ],

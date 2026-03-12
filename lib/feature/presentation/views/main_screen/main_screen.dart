@@ -24,7 +24,9 @@ class _MainScreenState extends State<MainScreen> {
         width: 40,
         height: 40,
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            GoRouter.of(context).goNamed(Pages.counterScreen.toPathName());
+          },
           splashColor: Colors.transparent,
           backgroundColor: Colors.transparent,
           elevation: 0,

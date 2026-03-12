@@ -3,6 +3,7 @@ class Pages{
    static const String messageView = 'messageView';
    static const String notificationView = 'notificationView';
    static const String profileView = 'profileView';
+   static const String counterScreen = 'counterScreen';
 }
 
 
