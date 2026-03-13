@@ -8,3 +8,9 @@ class NumberIncrementEvent extends CounterEvent {
 
   NumberIncrementEvent({required this.number, required this.isIncrement});
 }
+
+class ToggleEvent extends CounterEvent {
+  final bool isOn;
+
+  ToggleEvent({required this.isOn});
+}

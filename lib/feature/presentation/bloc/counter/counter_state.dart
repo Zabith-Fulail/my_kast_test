@@ -9,3 +9,9 @@ class CounterSuccessState extends CounterState {
 
   CounterSuccessState({required this.number});
 }
+
+class ToggleSuccessState extends CounterState {
+  final bool isOn;
+
+  ToggleSuccessState({required this.isOn});
+}
